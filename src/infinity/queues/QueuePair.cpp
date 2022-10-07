@@ -50,8 +50,10 @@ QueuePair::QueuePair(infinity::core::Context* context) :
 	qpInitAttributes.cap.max_recv_sge = infinity::core::Configuration::MAX_NUMBER_OF_SGE_ELEMENTS;
 	qpInitAttributes.qp_type = IBV_QPT_RC;
 	qpInitAttributes.sq_sig_all = 0;
+	printf("qpInitAttributes Settings: %d, %d, %d, %d \n", qpInitAttributes.cap.max_send_wr, qpInitAttributes.cap.max_send_sge, qpInitAttributes.cap.max_recv_wr, qpInitAttributes.cap.max_recv_sge);
 
 	this->ibvQueuePair = ibv_create_qp(context->getProtectionDomain(), &(qpInitAttributes));
+	//printf("Oh dear, something went wrong! %s\n", strerror(errno));
 	INFINITY_ASSERT(this->ibvQueuePair != NULL, "[INFINITY][QUEUES][QUEUEPAIR] Cannot create queue pair.\n");
 
 	ibv_qp_attr qpAttributes;
