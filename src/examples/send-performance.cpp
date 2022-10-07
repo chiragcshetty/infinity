@@ -20,8 +20,8 @@
 #include <infinity/memory/RegionToken.h>
 #include <infinity/requests/RequestToken.h>
 
-#define PORT_NUMBER 8011
-#define SERVER_IP "192.0.0.1"
+#define PORT_NUMBER 18515  // Default value as mentioned here: https://support.mellanox.com/s/article/ib-write-lat
+#define SERVER_IP "192.168.6.1"
 #define BUFFER_COUNT 128
 #define MAX_BUFFER_SIZE 4096
 #define OPERATIONS_COUNT 1024
